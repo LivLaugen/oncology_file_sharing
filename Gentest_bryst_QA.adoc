@@ -1,0 +1,104 @@
+= Gentest
+
+
+== Metadata
+
+
+TemplateId:: Gentest_bryst_QA
+
+
+Archetype:: openEHR-EHR-SECTION.adhoc.v1
+
+
+
+
+:toc:
+
+
+
+
+== Gentest
+== Kartlegging genetisk biomarkør
+[options="header", cols="3,3,5,5,30"]
+|====
+|NodeId|Attr.|RM Type| Name |Description
+5+a|*Kartlegging genetisk biomarkør* + 
+OBSERVATION: _openEHR-EHR-OBSERVATION.investigation_screening.v1_
+
+
+Svarene kan være selvrapporterte.
+|at0040| 0..1| DV_CODED_TEXT | Kartleggingsformål
+a|
+* Brystkreft (no.onk.biomarkor: 4)
+
+
+Dette dataelementet er ment for å sette en kontekst for samlingen av spørsmål/svar til bruk senere for å gjøre spørringer på dataene. Det er ikke forventet at dette dataelementet skal være synlig for en bruker av skjemaet, men kun tilgjengelig i de lagrede dataene. For eksempel: "Preoperativ screening" eller navnet på det faktiske spørreskjemaet.
+|at0027| 0..1| DV_CODED_TEXT | Er det tilbudt gentest?
+a|
+* at0028 -> Ja 
+* at0029 -> Nei 
+* at0030 -> Ukjent 
+|at0043| 0..1| DV_TEXT | Merknad om gentest
+a|
+5+a|*Spesifikk undersøkelse* + 
+CLUSTER: _at0026_
+
+
+Bruk separate instanser av dette CLUSTER'et for å skille mellom spesifikke undersøkelser eller gruppering av undersøkelser.
+|at0021| 1..1| DV_CODED_TEXT | Undersøkelsesnavn
+a|
+* Genetiske biomarkører (no.onk.type_biomarkorer: B1)
+
+
+For eksempel: "Blodgass"," Røntgen thorax", "EKG" eller "Hørseltest". Koding av "Undersøkelsesnavn" med en terminologi foretrekkes der det er mulig.
+|at0024| 0..1| DV_CODED_TEXT | Er det tatt gentest?
+a|
+* at0036 -> Ja 
+* at0037 -> Nei 
+* at0039 -> Ukjent 
+|====
+== Biomarkør genetikk
+[options="header", cols="3,3,5,5,30"]
+|====
+|NodeId|Attr.|RM Type| Name |Description
+5+a|*Biomarkør genetikk* + 
+OBSERVATION: _openEHR-EHR-OBSERVATION.laboratory_test_result.v1_
+|at0005| 1..1| DV_CODED_TEXT | Genetisk test
+a|
+* Genetisk test (SNOMED-CT: 405824009)
+
+
+Undersøkelsesnavnet kan dekke ett enkelt resultat eller en gruppe av resultater. Undersøkelsesnavnet kan kodes med medisinsk kodeverk som for eksempel NLK (Norsk laboratoriekodeverk), LOINC, SNOMED CT eller lokale laboratoriekodeverk. Eksempler kan være "Glukose", "Elektrolytter", "Blodgass", "Differensialtelling", "Dyrkning", "Kortisol (morgen)" eller "histologi melanom". Navnet kan noen ganger inneholde typen prøvemateriale og/eller pasientstatus, for eksempel "fastende blodglukose" "Kalium i svette", eller inneholde annen informasjon, som "Kalium (PNA blodgass)".
+5+a|*Prøvemateriale* + 
+CLUSTER: _openEHR-EHR-CLUSTER.specimen.v1_
+
+
+For eksempel kroppsvev eller kroppsvæske.
+|at0029| 0..1| DV_CODED_TEXT | Type prøvemateriale
+a|
+* Blodprøve (SNOMED-CT: 119297000)
+
+
+Designkommentar: Denne skal ikke vises i skjermbildet.
+|at0015| 0..1| DV_DATE_TIME | Dato/tid for prøvetaking
+|
+|at0057| 0..1| DV_TEXT | Resultat genanalyser
+a|
+
+
+For eksempel "mønsteret indikerer betydelig nedsatt nyrefunksjon". Innholdet av konklusjonen vil variere, basert på hvilken undersøkelse som er utført. Konklusjonen bør være i overensstemmelse med kodene brukt i elementet "Diagnose".
+5+a|*Rekvisisjonsdetaljer* + 
+CLUSTER: _at0094_
+
+
+I de fleste situasjoner finnes det én rekvisisjon og ett korresponderende svar, men under noen omstendigheter kan flere rekvisisjoner representeres ved hjelp av en enkelt laboratorieresultat-arketype.
+
+For eksempel kan en kliniker bestille "glukose" i en rekvisisjon og "urea og elektrolytter" i en ytterligere rekvisisjon, mens laboratoriet utfører begge analysene og sender en samlet rapport.
+|at0063| 0..1| DV_TEXT | Rekvisisjonsnummer
+a|
+
+
+Når Laboratorieinformasjonssystemet (LIMS) tildeler en identifikator, åpnes det for sporing av fremdriften/prosessforløpet på bestillingen av undersøkelsen/rekvisisjonen og for å koble undersøkelsesresultatet til rekvisisjonen/bestillingen. Som regel tilsvarer dette HL7 "Filler Order Identifier".
+
+Denne identifikatoren kalles også ofte "rekvisisjonsnummer" eller "remissenummer".
+|====

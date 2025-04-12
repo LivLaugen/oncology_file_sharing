@@ -1,0 +1,53 @@
+= Kartlegging om tidligere kreft
+
+
+== Metadata
+
+
+TemplateId:: Kartlegging om tidligere kreft_bryst_QA
+
+
+Archetype:: openEHR-EHR-OBSERVATION.problem_screening.v1
+
+
+
+
+:toc:
+
+
+
+
+== Kartlegging om tidligere kreft
+[options="header", cols="3,3,5,5,30"]
+|====
+|NodeId|Attr.|RM Type| Name |Description
+5+a|*Kartlegging om tidligere kreft* + 
+OBSERVATION: _openEHR-EHR-OBSERVATION.problem_screening.v1_
+
+
+Svarene kan være selvrapporterte.
+|at0034| 0..1| DV_CODED_TEXT | Kartleggingsformål
+a|
+* Brystkreft (no.onk.kart.tidligere_kreft: 4)
+|at0028| 0..1| DV_CODED_TEXT | Har pasienten tidligere hatt kreft?
+a|
+* at0031 -> Ja 
+* at0032 -> Nei 
+* at0033 -> Ukjent 
+|at0043| 0..1| DV_TEXT | Merknad om tidligere kreft
+a|
+5+a|*Spesifikt problem eller diagnose* + 
+CLUSTER: _at0022_
+|at0004| 1..1| DV_TEXT | Kreftdiagnose
+a|
+
+
+Kreftdiagnosen kodes med ICD10
+|at0005| 0..1| DV_CODED_TEXT | Tilstede?
+a|
+* at0023 -> Ja 
+|at0040| 0..1| DV_DATE_TIME | Dato bekreftet
+|
+|at0025| 0..1| DV_TEXT | Kommentar
+a|
+|====

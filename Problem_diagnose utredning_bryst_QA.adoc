@@ -1,0 +1,309 @@
+= Problem/diagnose utredning
+
+
+== Metadata
+
+
+TemplateId:: Problem/diagnose utredning_bryst_QA
+
+
+Archetype:: openEHR-EHR-SECTION.adhoc.v1
+
+
+
+
+:toc:
+
+
+
+
+== Problem/diagnose utredning
+== Problem/diagnose (inkl TNM)
+[options="header", cols="3,3,5,5,30"]
+|====
+|NodeId|Attr.|RM Type| Name |Description
+5+a|*Problem/diagnose (inkl TNM)* + 
+EVALUATION: _openEHR-EHR-EVALUATION.problem_diagnosis.v1_
+
+
+Det er i praksis ikke lett å oppnå et klart skille mellom et problem og en diagnose. I klinisk dokumentasjon med denne arketypen ses problem og diagnose som et kontinuum, med økende krav til detaljer og støttende evidens for å underbygge en diagnose.
+|at0002| 1..1| DV_TEXT | Diagnose
+a|
+
+
+Koding av navnet på problemet eller diagnosen med en terminologi er foretrukket hvis mulig.
+|at0079| 0..1| DV_CODED_TEXT | Tumorutbredelsesmønster
+a|
+* Multifokal tumor (SNOMED-CT: 399506006)
+
+
+For eksempel "akutt motorisk aksonal nevropati" som en variant av Guillain-Barre Syndrom. Koding av navnet på varianten med en terminologi er foretrukket hvis mulig.
+|at0009| 0..1| DV_TEXT | Merknad om diagnosen
+a|
+|at0012| 0..*| DV_CODED_TEXT | Beliggenhet
+a|
+* Høyre bryst (SNOMED-CT: 73056007)
+* Venstre bryst (SNOMED-CT: 80248007)
+* Begge bryst (SNOMED-CT: 63762007)
+|at0003| 0..1| DV_DATE_TIME | Dato/tid for klinisk bekreftelse
+|
+5+a|*cTNM-klassifikasjon klinisk* + 
+CLUSTER: _openEHR-EHR-CLUSTER.tnm.v1_
+
+
+Betegnes som TNM eller cTNM.
+|at0001| 0..1| DV_TEXT | Anatomisk lokalisering
+a|
+
+
+Bruk verdien fra TNM for den enkelte typen tumor, for eksempel "Magesekk" eller "Tynntarm".
+|at0003| 0..1| DV_CODED_TEXT | Primærtumor (T)
+a|
+* cTX (SNOMED-CT: 1222604002)
+* cT0 (SNOMED-CT: 1228882005)
+* cTis(DCIS) (SNOMED-CT: 1228885007)
+* cTis(Paget) (SNOMED-CT: 1228888009)
+* cT1 (SNOMED-CT: 1228889001)
+* cT1mi (SNOMED-CT: 1228891009)
+* cT1a (SNOMED-CT: 1228892002)
+* cT1b (SNOMED-CT: 1228895000)
+* cT1c (SNOMED-CT: 1228899006)
+* cT2 (SNOMED-CT: 1228929004)
+* cT3 (SNOMED-CT: 1228938002)
+* cT4 (SNOMED-CT: 1228944003)
+* cT4a (SNOMED-CT: 1228945002)
+* cT4b (SNOMED-CT: 1228946001)
+* cT4c (SNOMED-CT: 1228947005)
+* cT4d (SNOMED-CT: 1228948000)
+|at0004| 0..1| DV_CODED_TEXT | Regionale lymfeknuter (N)
+a|
+* cNX (SNOMED-CT: 1229966003)
+* cN0 (SNOMED-CT: 1229967007)
+* cN1 (SNOMED-CT: 1229973008)
+* cN2 (SNOMED-CT: 1229978004)
+* cN3 (SNOMED-CT: 1229984001)
+|at0005| 0..1| DV_CODED_TEXT | Fjernmetastase (M)
+a|
+* cM0 (SNOMED-CT: 1229901006)
+* cM0(i+) (SNOMED-CT: 1229902004)
+* cM1 (SNOMED-CT: 1229903009)
+* MX (SNOMED-CT: 27167007)
+|at0025| 0..1| DV_COUNT | Multiple primærtumorer (m)
+|
+
+
+Angis med en tilføyelse, enten bokstaven "m" eller antallet av primærsvulster, i parantes bak T-koden, for eksempel "T2(m)" eller "cT2(4)".
+|at0027| 0..1| DV_BOOLEAN | Residiv (r)
+|
+
+
+Angis ved å legge til prefikset "r" i "TNM-vurdering".
+|at0029| 0..1| DV_BOOLEAN | Carcinoma in situ (is)
+|
+
+
+Angis ved å legge til prefikset "is" i "TNM-vurdering".
+|at0030| 0..1| DV_TEXT | TNM-vurdering
+a|
+|at0032| 0..1| DV_CODED_TEXT | TNM-utgave
+a|
+* AJCC TNM Version 8 (AJCC-TNM-VERSION: Edition8)
+* AJCC TNM Version 9 (AJCC-TNM-VERSION: Edition9)
+5+a|*pTNM-klassifikasjon patologi* + 
+CLUSTER: _openEHR-EHR-CLUSTER.tnm-pathological.v1_
+
+
+Betegnes som pTNM.
+|at0003.1| 0..1| DV_CODED_TEXT | Primærtumor (pT)
+a|
+* pTX (oncology.breast.tnm.staging.p: 1228950008)
+* pT0 (oncology.breast.tnm.staging.p: 1228951007)
+* pTis(DCIS) (oncology.breast.tnm.staging.p: 1228954004)
+* pTis(Paget) (oncology.breast.tnm.staging.p: 1228956002)
+* pT1 (oncology.breast.tnm.staging.p: 1228957006)
+* pT1mi (oncology.breast.tnm.staging.p: 1228958001)
+* pT1a (oncology.breast.tnm.staging.p: 1228959009)
+* pT1b (oncology.breast.tnm.staging.p: 1228962007)
+* pT1c (oncology.breast.tnm.staging.p: 1229846008)
+* pT2 (oncology.breast.tnm.staging.p: 1229852009)
+* pT3 (oncology.breast.tnm.staging.p: 1229859000)
+* pT4 (oncology.breast.tnm.staging.p: 1229864001)
+* pT4a (oncology.breast.tnm.staging.p: 1229865000)
+* pT4b (oncology.breast.tnm.staging.p: 1229866004)
+* pT4c (oncology.breast.tnm.staging.p: 1229867008)
+* pT4d (oncology.breast.tnm.staging.p: 1229868003)
+|at0004.1| 0..1| DV_CODED_TEXT | Regionale lymfeknuter (pN)
+a|
+* pNX (oncology.breast.tnm.staging.pN: 1229945006)
+* pN0 (oncology.breast.tnm.staging.pN: 1229947003)
+* pN0(i-) (oncology.breast.tnm.staging.pN: 373154009)
+* pN0(i+) (oncology.breast.tnm.staging.pN: 1229949000)
+* pN0(i-) (oncology.breast.tnm.staging.pN: 373154009)
+* pN0(mol+) (oncology.breast.tnm.staging.pN: 1229950000)
+* pN1mi (oncology.breast.tnm.staging.pN: 1229952008)
+* pN1 (oncology.breast.tnm.staging.pN: 1229951001)
+* pN1a (oncology.breast.tnm.staging.pN: 1229954009)
+* pN1b (oncology.breast.tnm.staging.pN: 1229955005)
+* pN1c (oncology.breast.tnm.staging.pN: 1229956006)
+* pN2 (oncology.breast.tnm.staging.pN: 1229957002)
+* pN2a (oncology.breast.tnm.staging.pN: 1229959004)
+* pN2b (oncology.breast.tnm.staging.pN: 1229960009)
+* pN3 (oncology.breast.tnm.staging.pN: 1229962001)
+* pN3a (oncology.breast.tnm.staging.pN: 1229963006)
+* pN3b (oncology.breast.tnm.staging.pN: 1229964000)
+* pN3c (oncology.breast.tnm.staging.pN: 1229965004)
+|at0005.1| 0..1| DV_CODED_TEXT | Fjernmetastase (pM)
+a|
+* pM0 (oncology.breast.tnm.staging.p: 19408000)
+* pM1 (oncology.breast.tnm.staging.p: 1229916009)
+* pMX (oncology.breast.tnm.staging.p: 17076002)
+|at0025.1| 0..1| DV_COUNT | Multiple primærtumorer (m)
+|
+
+
+Angis med en tilføyelse, enten bokstaven "m" eller antallet av primærsvulster, i parantes bak T-koden, for eksempel "pT2(m)" eller "pT2(4)". Fremkommer i "TNM-vurdering" som "pm".
+|at0027| 0..1| DV_BOOLEAN | Residiv (r)
+|
+
+
+Angis ved å legge til prefikset "r" i "TNM-vurdering".
+|at0029| 0..1| DV_BOOLEAN | Carcinoma in situ (is)
+|
+
+
+Angis ved å legge til prefikset "is" i "TNM-vurdering".
+|at0030.1| 0..1| DV_TEXT | pTNM-vurdering
+a|
+|at0032| 0..1| DV_CODED_TEXT | TNM-utgave
+a|
+* AJCC TNM Version 8 (AJCC-TNM-VERSION: Edition8)
+* AJCC TNM Version 9 (AJCC-TNM-VERSION: Edition9)
+|at0.2| 0..1| DV_BOOLEAN | Mikrometastaser (mi)
+|
+
+
+Angis ved å legge til suffikset "mi" i "TNM-vurdering".
+|at0.3| 0..1| DV_CODED_TEXT | Regional lymfeknute ITC
+a|
+* at0.4 -> i- 
+* at0.5 -> i+ 
+* at0.6 -> mol- 
+* at0.7 -> mol+ 
+
+
+For eksempel "pN0(i-) Ingen metastaser i regionale lymfeknuter histologisk, negativt morfologisk funn for ITC", "pN0(mol+) Ingen metastaser i regionale lymfeknuter histologisk, positive funn non-morfologisk av ITC" eller "pN0(i+)(sn) Ingen metastase i vaktpostlymfeknute histologisk, positive morfologiske funn av ITC.
+|at0.8| 0..1| DV_CODED_TEXT | Fjernmetastase ITC
+a|
+* at0.4 -> i- 
+* at0.5 -> i+ 
+* at0.6 -> mol- 
+* at0.7 -> mol+ 
+
+
+For eksempel "pM0(i+) eller "pM0(mol+).
+5+a|*Stadieinndeling kreft* + 
+CLUSTER: _openEHR-EHR-CLUSTER.clinical_evidence.v1_
+|at0003| 0..1| DV_CODED_TEXT | Stadieinndeling
+a|
+* Stadium 0 (no.onk_overall_cancer_staging: Stage 0)
+* Stadium I (no.onk_overall_cancer_staging: Stage I)
+* Stadium ll (no.onk_overall_cancer_staging: Stage II)
+* Stadium lll (no.onk_overall_cancer_staging: Stage lll)
+* Stadium lV (no.onk_overall_cancer_staging: Stage IV)
+
+
+Det anbefales å kode "Funn" med en terminologi, der det er mulig.
+5+a|*Klinisk sikker kreft ved utredningstidspunktet* + 
+CLUSTER: _openEHR-EHR-CLUSTER.clinical_evidence.v1_
+
+
+Designkommentar:
+Vises bare når Tumor cT = 0 eller X og Lymfeknuter cN = 0 eller X og Ingen Metastaser = true eller Fjernmet Ikke US = true 
+|at0003| 0..1| DV_CODED_TEXT | Klinisk sikker kreft ved utredingspunktet?
+a|
+* Bekreftet (kreftdiagnose på grunnlag av kliniske funn) (SNOMED-CT: 373795004)
+* Usikker  (usikker om tumor er beningn eller malign) (SNOMED-CT: 269497004)
+* Forstadium (DCIS) (SNOMED-CT: 109889007)
+* Ingen tegn til malign neoplasme/kreft (SNOMED-CT: 395100000)
+|at0070| 0..1| DV_DATE_TIME | Sist oppdatert
+|
+|====
+== Regional (N) lymfeknutemetastase
+[options="header", cols="3,3,5,5,30"]
+|====
+|NodeId|Attr.|RM Type| Name |Description
+5+a|*Regional (N) lymfeknutemetastase* + 
+EVALUATION: _openEHR-EHR-EVALUATION.problem_diagnosis.v1_
+
+
+Det er i praksis ikke lett å oppnå et klart skille mellom et problem og en diagnose. I klinisk dokumentasjon med denne arketypen ses problem og diagnose som et kontinuum, med økende krav til detaljer og støttende evidens for å underbygge en diagnose.
+|at0002| 1..1| DV_CODED_TEXT | Regional lymfeknutemetastase
+a|
+* Reginoale lymfeknutemetastase (SNOMED-CT: 399374009)
+|at0079| 0..1| DV_CODED_TEXT | Regional metastatse ICD-10
+a|
+5+a|*Utredningsmetode regionale lymfeknutemetastaser* + 
+CLUSTER: _openEHR-EHR-CLUSTER.clinical_evidence.v1_
+|at0022| 0..*| DV_CODED_TEXT | Metode
+a|
+* Bildediagnostikk (SNOMED-CT: 363679005)
+* Cytologi (SNOMED-CT: 116147009)
+* Biopsi (SNOMED-CT: 86273004)
+* Fjerning av SN (SNOMED-CT: 443497002)
+* Reseksjon (SNOMED-CT: 65801008)
+* Annet (SNOMED-CT: 74964007)
+* Ukjent (SNOMED-CT: 69466000)
+
+
+Metoden bør vurderes kodet med en terminologi der dette er mulig. For eksempel fysisk undersøkelse, røntgen thorax, patologisvar, koloskopi.
+|at0001| 0..1| DV_TEXT | Spesifier annen metode
+a|
+|at0070| 0..1| DV_DATE_TIME | Sist oppdatert
+|
+|====
+== Fjernmetastaser (M)
+[options="header", cols="3,3,5,5,30"]
+|====
+|NodeId|Attr.|RM Type| Name |Description
+5+a|*Fjernmetastaser (M)* + 
+EVALUATION: _openEHR-EHR-EVALUATION.problem_diagnosis.v1_
+
+
+Det er i praksis ikke lett å oppnå et klart skille mellom et problem og en diagnose. I klinisk dokumentasjon med denne arketypen ses problem og diagnose som et kontinuum, med økende krav til detaljer og støttende evidens for å underbygge en diagnose.
+|at0002| 1..1| DV_CODED_TEXT | Fjernmetastaser
+a|
+* Fjernmetastase (SNOMED-CT: 399409002)
+|at0079| 0..*| DV_CODED_TEXT | Variant
+a|
+* levermetastase (SNOMED-CT: 94381002)
+* skjelettmetastase (SNOMED-CT: 94222008)
+* pleurametastase (SNOMED-CT: 94493005)
+* hjernemetastase (SNOMED-CT: 94225005)
+* hudmetastase (SNOMED-CT: 94579000)
+* lymfeknutemetastase (SNOMED-CT: 94392001)
+* metastase i aksillære lymfeknuter (SNOMED-CT: 94181007)
+* lungemetastase (SNOMED-CT: 94391008)
+* metastase i tarm (SNOMED-CT: 94346004)
+* metastase i magesekk (SNOMED-CT: 94606003)
+* metastase i urinveissystem (SNOMED-CT: 94663008)
+* metastase i muskulatur (SNOMED-CT: 94432003)
+* metastase i bløtvev (SNOMED-CT: 278433008)
+5+a|*Utredningsmetode fjernmetastaser* + 
+CLUSTER: _openEHR-EHR-CLUSTER.clinical_evidence.v1_
+|at0022| 0..*| DV_CODED_TEXT | Metode
+a|
+* Palpasjon (SNOMED-CT: 113011001)
+* Bildediagnostikk (SNOMED-CT: 363679005)
+* Cytologi (SNOMED-CT: 116147009)
+* Biopsi (SNOMED-CT: 86273004)
+* Reseksjon (SNOMED-CT: 65801008)
+* Annet (SNOMED-CT: 74964007)
+* Ukjent (SNOMED-CT: 69466000)
+
+
+Metoden bør vurderes kodet med en terminologi der dette er mulig. For eksempel fysisk undersøkelse, røntgen thorax, patologisvar, koloskopi.
+|at0001| 0..1| DV_TEXT | Spesifiser annen metode
+a|
+|at0070| 0..1| DV_DATE_TIME | Sist oppdatert
+|
+|====

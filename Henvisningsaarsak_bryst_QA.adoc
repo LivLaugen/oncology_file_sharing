@@ -1,0 +1,32 @@
+= Henvisningsårsak
+
+
+== Metadata
+
+
+TemplateId:: Henvisningsaarsak_bryst_QA
+
+
+Archetype:: openEHR-EHR-EVALUATION.reason_for_encounter.v1
+
+
+
+
+:toc:
+
+
+
+
+== Henvisningsårsak
+[options="header", cols="3,3,5,5,30"]
+|====
+|NodeId|Attr.|RM Type| Name |Description
+5+a|*Henvisningsårsak* + 
+EVALUATION: _openEHR-EHR-EVALUATION.reason_for_encounter.v1_
+|at0004| 0..1| DV_CODED_TEXT | Henvisningsårsak
+a|
+* Screening (no.onk.henvisningsaarsak: 1)
+* Symptomer (no.onk.henvisningsaarsak: 2)
+* Tilfeldig funn (no.onk.henvisningsaarsak: 3)
+* Kontroll (no.onk.henvisningsaarsak: 4)
+|====

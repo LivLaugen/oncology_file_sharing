@@ -1,0 +1,254 @@
+= Symptomer/sykdomstegn
+
+
+== Metadata
+
+
+TemplateId:: Symptomer/sykdomstegn_bryst_QA
+
+
+Archetype:: openEHR-EHR-OBSERVATION.symptom_sign_screening.v1
+
+
+
+
+:toc:
+
+
+
+
+== Symptomer/sykdomstegn
+[options="header", cols="3,3,5,5,30"]
+|====
+|NodeId|Attr.|RM Type| Name |Description
+5+a|*Symptomer/sykdomstegn* + 
+OBSERVATION: _openEHR-EHR-OBSERVATION.symptom_sign_screening.v1_
+
+
+Svarene kan være selvrapporterte.
+|at0034| 0..1| DV_CODED_TEXT | Kartleggingsformål
+a|
+* Brystkreft (no.onk.kart.symptom: 4)
+
+
+Det er besluttet å bruke kodene for kreftgrupperingen i SJK prosjektet. 
+1	Sarkom
+2	Kreft i hode og hals
+3	Hjernesvulst
+4	Brystkreft
+5	Lungekreft
+6	Kreft i fordøyelsessystemet
+7	Gynekologisk kreft
+8	Kreft i nyre og urinveier
+9	Benmargs- og blodkreft
+10	Lymfom
+11	Hudkreft
+12	Kreft i mannlige kjønnsorganer
+13	Kreft i endokrine kjertler
+14	Nevroendokrin kreft
+15	Barnekreft
+16	Øyekreft
+17	Svulst av ukjent opprinnelse / Annet
+
+|at0028| 0..1| DV_CODED_TEXT | Finnes det symptomer eller sykdomstegn?
+a|
+* at0031 -> Ja 
+* at0032 -> Nei 
+* at0033 -> Ukjent 
+|at0029| 0..1| DV_DATE_TIME | Debut første symptom/sykdomstegn
+|
+5+a|*Spesifikt symptom/sykdomstegn* + 
+CLUSTER: _at0022_
+|at0004| 1..1| DV_CODED_TEXT | Navn på symptom/sykdomstegn
+a|
+* Palpabel oppfylling i mamma (SNOMED-CT: 157551000202106)
+
+
+Navnet på symptom/sykdomstegn bør kodes med en terminologi om mulig.
+|at0005| 0..1| DV_BOOLEAN | Tilstede?
+|
+
+
+Navnet på dataelementet kan omformuleres til det spesifikke spørsmålet i et templat eller brukergrensesnitt. Det foreslåtte verdisettet kan tilpasses/endres i det enkelte bruksområde ved å benytte de alternative datatypene DV_TEXT eller DV_BOOLEAN.
+5+a|*Symptom/Sykdomstegn* + 
+CLUSTER: _openEHR-EHR-CLUSTER.symptom_sign.v2_
+|at0001| 1..1| DV_CODED_TEXT | Navn på symptom/sykdomstegn
+a|
+* Palpabel oppfylling i mamma (SNOMED-CT: 157551000202106)
+
+
+Navnet på symptom/sykdomstegn bør kodes med en terminologi om mulig.
+5+a|*Spesifikt symptom/sykdomstegn (2)* + 
+CLUSTER: _at0022_
+|at0004| 1..1| DV_CODED_TEXT | Navn på symptom/sykdomstegn
+a|
+* Smerter i mamma (Symptom/sykdomstegn - Legg inn snomedkoder: 53430007)
+
+
+Navnet på symptom/sykdomstegn bør kodes med en terminologi om mulig.
+|at0005| 0..1| DV_BOOLEAN | Tilstede?
+|
+
+
+Navnet på dataelementet kan omformuleres til det spesifikke spørsmålet i et templat eller brukergrensesnitt. Det foreslåtte verdisettet kan tilpasses/endres i det enkelte bruksområde ved å benytte de alternative datatypene DV_TEXT eller DV_BOOLEAN.
+5+a|*Symptom/Sykdomstegn* + 
+CLUSTER: _openEHR-EHR-CLUSTER.symptom_sign.v2_
+|at0001| 1..1| DV_CODED_TEXT | Navn på symptom/sykdomstegn
+a|
+* Smerter i mamma (SNOMED-CT: 53430007)
+
+
+Navnet på symptom/sykdomstegn bør kodes med en terminologi om mulig.
+5+a|*Spesifikt symptom/sykdomstegn (3)* + 
+CLUSTER: _at0022_
+|at0004| 1..1| DV_CODED_TEXT | Navn på symptom/sykdomstegn
+a|
+* Ømhet i mamma (Symptom/sykdomstegn - Legg inn snomedkoder: 55222007)
+
+
+Navnet på symptom/sykdomstegn bør kodes med en terminologi om mulig.
+|at0005| 0..1| DV_BOOLEAN | Tilstede?
+|
+
+
+Navnet på dataelementet kan omformuleres til det spesifikke spørsmålet i et templat eller brukergrensesnitt. Det foreslåtte verdisettet kan tilpasses/endres i det enkelte bruksområde ved å benytte de alternative datatypene DV_TEXT eller DV_BOOLEAN.
+5+a|*Symptom/Sykdomstegn* + 
+CLUSTER: _openEHR-EHR-CLUSTER.symptom_sign.v2_
+|at0001| 1..1| DV_CODED_TEXT | Navn på symptom/sykdomstegn
+a|
+* Ømhet i mamma (SNOMED-CT: 55222007)
+
+
+Navnet på symptom/sykdomstegn bør kodes med en terminologi om mulig.
+5+a|*Spesifikt symptom/sykdomstegn (4)* + 
+CLUSTER: _at0022_
+|at0004| 1..1| DV_CODED_TEXT | Navn på symptom/sykdomstegn
+a|
+* Sekresjon fra mamillen (Symptom/sykdomstegn - Legg inn snomedkoder: 54302000)
+
+
+Navnet på symptom/sykdomstegn bør kodes med en terminologi om mulig.
+|at0005| 0..1| DV_BOOLEAN | Tilstede?
+|
+
+
+Navnet på dataelementet kan omformuleres til det spesifikke spørsmålet i et templat eller brukergrensesnitt. Det foreslåtte verdisettet kan tilpasses/endres i det enkelte bruksområde ved å benytte de alternative datatypene DV_TEXT eller DV_BOOLEAN.
+5+a|*Symptom/Sykdomstegn* + 
+CLUSTER: _openEHR-EHR-CLUSTER.symptom_sign.v2_
+|at0001| 1..1| DV_CODED_TEXT | Navn på symptom/sykdomstegn
+a|
+* Sekresjon fra mamillen (SNOMED-CT: 54302000)
+
+
+Navnet på symptom/sykdomstegn bør kodes med en terminologi om mulig.
+5+a|*Spesifikt symptom/sykdomstegn (5)* + 
+CLUSTER: _at0022_
+|at0004| 1..1| DV_CODED_TEXT | Navn på symptom/sykdomstegn
+a|
+* Ødem i mamma (SNOMED-CT: 290077003)
+
+
+Navnet på symptom/sykdomstegn bør kodes med en terminologi om mulig.
+|at0005| 0..1| DV_BOOLEAN | Tilstede?
+|
+
+
+Navnet på dataelementet kan omformuleres til det spesifikke spørsmålet i et templat eller brukergrensesnitt. Det foreslåtte verdisettet kan tilpasses/endres i det enkelte bruksområde ved å benytte de alternative datatypene DV_TEXT eller DV_BOOLEAN.
+5+a|*Symptom/Sykdomstegn* + 
+CLUSTER: _openEHR-EHR-CLUSTER.symptom_sign.v2_
+|at0001| 1..1| DV_CODED_TEXT | Navn på symptom/sykdomstegn
+a|
+* Ødem i mamma (SNOMED-CT: 290077003)
+
+
+Navnet på symptom/sykdomstegn bør kodes med en terminologi om mulig.
+5+a|*Spesifikt symptom/sykdomstegn (6)* + 
+CLUSTER: _at0022_
+|at0004| 1..1| DV_CODED_TEXT | Navn på symptom/sykdomstegn
+a|
+* Peau d'Orange (SNOMED-CT: 87386002)
+
+
+Navnet på symptom/sykdomstegn bør kodes med en terminologi om mulig.
+|at0005| 0..1| DV_BOOLEAN | Tilstede?
+|
+
+
+Navnet på dataelementet kan omformuleres til det spesifikke spørsmålet i et templat eller brukergrensesnitt. Det foreslåtte verdisettet kan tilpasses/endres i det enkelte bruksområde ved å benytte de alternative datatypene DV_TEXT eller DV_BOOLEAN.
+5+a|*Symptom/Sykdomstegn* + 
+CLUSTER: _openEHR-EHR-CLUSTER.symptom_sign.v2_
+|at0001| 1..1| DV_CODED_TEXT | Navn på symptom/sykdomstegn
+a|
+* Peau d'Orange (SNOMED-CT: 87386002)
+
+
+Navnet på symptom/sykdomstegn bør kodes med en terminologi om mulig.
+5+a|*Spesifikt symptom/sykdomstegn (7)* + 
+CLUSTER: _at0022_
+|at0004| 1..1| DV_CODED_TEXT | Navn på symptom/sykdomstegn
+a|
+* Hudretraksjon på mamma (SNOMED-CT: 197681000202106)
+
+
+Navnet på symptom/sykdomstegn bør kodes med en terminologi om mulig.
+|at0005| 0..1| DV_BOOLEAN | Tilstede?
+|
+
+
+Navnet på dataelementet kan omformuleres til det spesifikke spørsmålet i et templat eller brukergrensesnitt. Det foreslåtte verdisettet kan tilpasses/endres i det enkelte bruksområde ved å benytte de alternative datatypene DV_TEXT eller DV_BOOLEAN.
+5+a|*Symptom/Sykdomstegn* + 
+CLUSTER: _openEHR-EHR-CLUSTER.symptom_sign.v2_
+|at0001| 1..1| DV_CODED_TEXT | Navn på symptom/sykdomstegn
+a|
+* Hudretraksjon på mamma (SNOMED-CT: 197681000202106)
+
+
+Navnet på symptom/sykdomstegn bør kodes med en terminologi om mulig.
+5+a|*Spesifikt symptom/sykdomstegn (8)* + 
+CLUSTER: _at0022_
+|at0004| 1..1| DV_CODED_TEXT | Navn på symptom/sykdomstegn
+a|
+* Betennelse i mamma (mastitt) (SNOMED-CT: 266579006)
+
+
+Navnet på symptom/sykdomstegn bør kodes med en terminologi om mulig.
+|at0005| 0..1| DV_BOOLEAN | Tilstede?
+|
+
+
+Navnet på dataelementet kan omformuleres til det spesifikke spørsmålet i et templat eller brukergrensesnitt. Det foreslåtte verdisettet kan tilpasses/endres i det enkelte bruksområde ved å benytte de alternative datatypene DV_TEXT eller DV_BOOLEAN.
+5+a|*Symptom/Sykdomstegn* + 
+CLUSTER: _openEHR-EHR-CLUSTER.symptom_sign.v2_
+|at0001| 1..1| DV_CODED_TEXT | Navn på symptom/sykdomstegn
+a|
+* Betennelse i mamma (mastitt) (SNOMED-CT: 266579006)
+
+
+Navnet på symptom/sykdomstegn bør kodes med en terminologi om mulig.
+5+a|*Spesifikt symptom/sykdomstegn (9)* + 
+CLUSTER: _at0022_
+|at0004| 1..1| DV_CODED_TEXT | Navn på symptom/sykdomstegn
+a|
+* Annet (spesifiser) (SNOMED-CT: 74964007)
+
+
+Navnet på symptom/sykdomstegn bør kodes med en terminologi om mulig.
+|at0005| 0..1| DV_BOOLEAN | Tilstede?
+|
+
+
+Navnet på dataelementet kan omformuleres til det spesifikke spørsmålet i et templat eller brukergrensesnitt. Det foreslåtte verdisettet kan tilpasses/endres i det enkelte bruksområde ved å benytte de alternative datatypene DV_TEXT eller DV_BOOLEAN.
+5+a|*Symptom/Sykdomstegn* + 
+CLUSTER: _openEHR-EHR-CLUSTER.symptom_sign.v2_
+|at0001| 1..1| DV_CODED_TEXT | Navn på symptom/sykdomstegn
+a|
+* General symptom description (SNOMED-CT: 162408000)
+
+
+Navnet på symptom/sykdomstegn bør kodes med en terminologi om mulig.
+|at0002| 0..1| DV_TEXT | Beskrivelse
+a|
+
+
+Eksempel: "Svimmelhet med rotasjonsfølelse og av og til besvimelsesfølelse. Hurtig bevegelse fra sittende eller liggende til stående stilling virker å være en utløsende faktor. Opptrer typisk flere ganger daglig, og varer i ca et halvt til ett minutt hver gang. Å sette eller legge seg ned virker lindrende."
+|====
